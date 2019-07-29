@@ -1,21 +1,22 @@
 package com.clt;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
- * @ Author   ï¼šclt.
- * @ Date     ï¼šCreated in 18:35 2019/7/15
+ * @ Author   £ºclt.
+ * @ Date     £ºCreated in 18:35 2019/7/15
  */
 public class Test {
 
     @org.junit.Test
-    public void test(){
+    public void test() {
         System.out.println(1);
-//        varå£°æ˜ new Obejct().var
+//        varÉùÃ÷ new Obejct().var
         final Object o = new Object();
-//        nullåˆ¤æ–­  o.null  || o.nn ||o.notnull
+//        nullÅĞ¶Ï  o.null  || o.nn ||o.notnull
         if (o == null) {
             if (o != null) {
                 if (o != null) {
@@ -23,11 +24,11 @@ public class Test {
                 }
             }
         }
-//        ifåˆ¤æ–­ o!=null.if
+//        ifÅĞ¶Ï o!=null.if
         if (o != null) {
 
         }
-//        å¢åŠ forå¾ªç¯éå†, ls.for
+//        Ôö¼ÓforÑ­»·±éÀú, ls.for
         List<String> ls = new ArrayList<>(1);
         for (String l : ls) {
             System.out.println(l);
@@ -36,7 +37,65 @@ public class Test {
         for (int i = 0; i < 100; i++) {
 
         }
-//        å¼ºè½¬ï¼š æ•°æ®.cast    è¿”å›å€¼.return
-
+//        Ç¿×ª£º Êı¾İ.cast    ·µ»ØÖµ.return
     }
+
+    @org.junit.Test
+    public void test1() {
+        ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        for (int i = 0; i < 5; i++) {
+            String s = i + "i";
+            map.put(s, i);
+        }
+    }
+
+    @org.junit.Test
+    public void test2() {
+        Map<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < 100; i++) {
+            String s = i + "i";
+            map.put(s, i);
+        }
+    }
+
+    @org.junit.Test
+    public void test3() {
+        String s1 = new String("Í¨»°");
+        String s2 = new String("Í¨»°");
+        System.out.println(s1.hashCode() + "-----" + s2.hashCode());
+        System.out.println(s1 == s2);
+    }
+
+    @org.junit.Test
+    public void test4(){
+        Integer[] arr = new Integer[10];
+        for (int i = 0; i < 5; i++) {
+            arr[i] = i;
+        }
+        List<Integer> list =  Arrays.asList(arr);
+        System.out.println(list);
+        arr[1] = 5;
+        System.out.println(list);
+        list.set(7,7);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    @org.junit.Test
+    public void test5(){
+
+        List<Integer> ls = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            ls.add(i);
+        }
+        Object[] arr = ls.toArray();
+        arr[2] = 20;
+        ls.add(10);
+        System.out.println("ÁĞ±í£º"+ls);
+        System.out.println("Êı×é£º"+Arrays.toString(arr));
+        while (true){
+
+        }
+    }
+
+
 }
